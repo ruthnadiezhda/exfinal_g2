@@ -86,7 +86,7 @@ app.post('/login', function(request, response) {
 
                     conn.query(query,parametro,function (err,res) {
                         if(err){
-                            console.log("Ocurrio un error");
+                            console.log(err);
                         } else{
                             response.send('/principal');
                         }
