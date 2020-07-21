@@ -26,6 +26,7 @@ app.get('/',function (request, response) {
 
     io.on('connection', function (socket) {
         console.log("Usuario Conectado");
+
         connectedUsers++;
         io.emit('connUsers',connectedUsers);
 

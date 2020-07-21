@@ -31,6 +31,10 @@
                 $("#messages").append($('<li>').text(msg));
             });
 
+            socket.on('connUsers',function(msg){
+                $('#connUsers').text(msg);
+            });
+
 
         });
 
