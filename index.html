@@ -31,10 +31,6 @@
                 $("#connUsers").append($('<li>').text(msg));
             });
 
-            socket.on('connUsers',function(msg){
-                $('#connUsers').text(msg);
-            });
-
 
         });
 
@@ -57,9 +53,22 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="row">
-                <h5 class="col-sm-10"> Cantidad de usuarios conectados: </h5>
-                <h6 class="col-sm-2" id="connUsers"></h6>
+                <h6 id="connUsers"></h6>
             </div>
+            <div class="row">
+                <table class="tablita"style="width:100%">
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Estado</th>
+                    </tr>
+                    <tr >
+                        <td>Jill</td>
+                        <td>Smith</td>
+                    </tr>
+                </table>
+            </div>
+
+
         </div>
         <div class="col-sm8">
             <ul id="messages"></ul> <!-- UL es lista -->
