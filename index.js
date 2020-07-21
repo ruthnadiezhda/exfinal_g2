@@ -81,7 +81,18 @@ app.post('/login', function(request, response) {
                     console.log(err);
                     response.redirect('/');
                 } else {
-                    response.send('/principal');
+                    query = "UPDATE user SET estado = 'conectado' WHERE (`usuario` = ?)";
+                    var parametro = usuario;
+
+                    conn.query(query,parametro,function (err,res) {
+                        if(err){
+                            console.log("Ocurrio un error");
+                        } else{
+                            response.send('/principal');
+                        }
+
+                    })
+
                 }
             });
     };
