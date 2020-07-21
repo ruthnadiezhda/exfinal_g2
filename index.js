@@ -96,10 +96,10 @@ app.post('/login', function(request, response) {
                     console.log(err);
                     response.redirect('/');
                 } else {
-<<<<<<< HEAD
+
 
                     response.send('/principal');
-=======
+
                     query = "UPDATE user SET estado = 'conectado' WHERE (`usuario` = ?)";
                     var parametro = usuario;
 
@@ -112,7 +112,7 @@ app.post('/login', function(request, response) {
 
                     })
 
->>>>>>> addfaf4bdfba55fa6a5e2cc7a2678370fad86491
+
                 }
             });
     };

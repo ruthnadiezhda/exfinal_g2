@@ -26,9 +26,9 @@
                 $("#messages").append($('<li>').text(msg));
             });
 
-            socket.on("conexiones",function(cantConexiones){
+            socket.on("connUsers",function(cantConexiones){
                 var msg = "Numero de usuarios conectados: " + cantConexiones;
-                $("#messages").append($('<li>').text(msg));
+                $("#connUsers").append($('<li>').text(msg));
             });
 
             socket.on('connUsers',function(msg){
