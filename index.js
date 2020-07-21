@@ -24,11 +24,28 @@ app.get('/',function (request, response) {
     console.log("Nuevo log");
     response.sendFile(__dirname + '/login.html');
 
+
+
+
     io.on('connection', function (socket) {
         console.log("Usuario Conectado");
 
         connectedUsers++;
         io.emit('connUsers',connectedUsers);
+
+        var sql1= "SELECT * FROM user WHERE estado='conectado'";
+        var sql2= "SELECT * FROM user WHERE estado='desconectado'";
+
+
+        conn.query(sql1,function(error,results){
+            io.emit("arregloDeUsuariosConectados",results);
+
+        });
+
+        conn.query(sql2,function(err,res){
+            io.emit("arregloDeUsuariosDesconectados",res);
+
+        });
 
         socket.on('disconnect', function(){
             console.log('Usuario Desconectado');
@@ -82,6 +99,7 @@ app.post('/login', function(request, response) {
                     console.log(err);
                     response.redirect('/');
                 } else {
+
                     response.send('/principal');
                 }
             });
