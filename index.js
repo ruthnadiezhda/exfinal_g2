@@ -14,12 +14,12 @@ server.listen(3000,function(){
 });
 
 //express routes
-app.get('/',function (request, response) {
+app.get('/principal',function (request, response) {
     console.log("Nuevo get");
     response.sendFile(__dirname + '/index.html');
 });
 
-app.get('/login',function (request, response) {
+app.get('/',function (request, response) {
     console.log("Nuevo log");
     response.sendFile(__dirname + '/login.html');
 });
