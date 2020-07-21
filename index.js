@@ -51,8 +51,6 @@ app.get('/',function (request, response) {
 //Conexion con la BD
 const mysql = require('mysql2');
 
-const app = express();
-
 let conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
