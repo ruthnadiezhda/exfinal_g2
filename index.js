@@ -14,14 +14,38 @@ server.listen(3000,function(){
 });
 
 //express routes
-app.get('/',function (request, response) {
+app.get('/principal',function (request, response) {
     console.log("Nuevo get");
     response.sendFile(__dirname + '/index.html');
 });
 
-app.get('/login',function (request, response) {
+var connectedUsers=0;
+app.get('/',function (request, response) {
     console.log("Nuevo log");
     response.sendFile(__dirname + '/login.html');
+
+    io.on('connection', function (socket) {
+        console.log("Usuario Conectado");
+        connectedUsers++;
+        io.emit('connUsers',connectedUsers);
+
+        socket.on('disconnect', function(){
+            console.log('Usuario Desconectado');
+            connectedUsers--;
+            io.emit('connUsers',connectedUsers);
+        });
+
+        socket.on('chat',function(msg){
+            console.log("mensaje del cliente: " +  msg);
+
+            io.emit("mensaje recibido",msg);
+
+        });
+
+    });
+
+
+
 });
 
 //Conexion con la BD

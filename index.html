@@ -18,7 +18,7 @@
                 $("#m").val("");
 
                 return false;
-            })
+            });
 
 
             socket.on('Mensaje recibido',function(msg){
@@ -29,9 +29,10 @@
             socket.on("conexiones",function(cantConexiones){
                 var msg = "Numero de usuarios conectados: " + cantConexiones;
                 $("#messages").append($('<li>').text(msg));
-            })
+            });
 
-        })
+
+        });
 
     </script>
     <style>
@@ -46,10 +47,28 @@
     </style>
 </head>
 <body>
-<ul id="messages"></ul> <!-- UL es lista -->
-<form action="">
-    <p id="conexiones"></p> <!-- Para ordenar la cuenta de conexiones y que no cambie en pestañas ya abiertas -->
-    <input id="m" autocomplete="off" /><button>Send</button>
-</form>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="row">
+                <h5 class="col-sm-10"> Cantidad de usuarios conectados: </h5>
+                <h6 class="col-sm-2" id="connUsers"></h6>
+            </div>
+        </div>
+        <div class="col-sm8">
+            <ul id="messages"></ul> <!-- UL es lista -->
+            <form action="">
+                <p id="conexiones"></p> <!-- Para ordenar la cuenta de conexiones y que no cambie en pestañas ya abiertas -->
+                <input id="m" autocomplete="off" /><button>Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
 </body>
 </html>
