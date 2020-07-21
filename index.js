@@ -49,7 +49,7 @@ app.post('/login', function(request, response) {
     var usuario = request.body.usuario;
     var password = request.body.password;
     var parametros = [username, password];
-    if (usuario && password) {
+    if (usuario != null && password !=null ) {
         connection.query('SELECT * FROM user WHERE usuario = ? AND password = ?',
             parametros, function (err, result) {
 
