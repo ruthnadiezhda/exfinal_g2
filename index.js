@@ -66,3 +66,28 @@ conn.connect(function(err){
     if(err) throw err;
     console.log("Conexión exitosa a base de datos");
 });
+
+
+
+//Post del inicio de sesion
+app.post('/login', function(request, response) {
+    var usuario = request.body.usuario;
+    var password = request.body.password;
+    var parametros = [username, password];
+    if (usuario != null && password !=null ) {
+        connection.query('SELECT * FROM user WHERE usuario = ? AND password = ?',
+            parametros, function (err, result) {
+
+                if (err) {
+                    console.log(err);
+                    response.redirect('/');
+                } else {
+                    response.send('/principal');
+                }
+            });
+    };
+});
+
+
+
+

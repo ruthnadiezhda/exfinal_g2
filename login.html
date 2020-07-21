@@ -17,7 +17,7 @@
 <body>
 <h1>Ingresa Tus Datos</h1>
 </h1>
-<form name="login">
+<form method="post" name="login" >
     <table width="200" border="0">
         <tr>
             <th scope="row"><h2>Usuario</h2></th>
@@ -31,7 +31,7 @@
            <input name="password" type="password" class="Input" value="" size="20" />
          </span></td>
             <td><span class="cnt">
-           <input value="Entrar" target="_parent" onclick="Login()" type="button" class="boton"/>
+           <button type="submit" class="btn btn-primary" value="Entrar" target="_parent" onclick="Login()" type="button" class="boton">Entrar</button>
          </span></td>
         </tr>
         <tr>
