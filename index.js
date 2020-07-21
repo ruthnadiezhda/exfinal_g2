@@ -49,7 +49,6 @@ app.get('/',function (request, response) {
 });
 
 //Conexion con la BD
-const express = require('express');
 const mysql = require('mysql2');
 
 const app = express();
